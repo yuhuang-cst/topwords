@@ -20,7 +20,7 @@ Write a `.cpp` and includes `topwords/topwords_lib.h` header. For example, the d
 
 using namespace std;
 
-void output_result(const unordered_map<wstring_view, double>& vocab2freq, const unordered_map<wstring_view, double>& vocab2phi, int topk=200, int step=10) {
+void output_result(const unordered_map<wstring_view, double>& vocab2freq, const unordered_map<wstring_view, double>& vocab2psi, int topk=200, int step=10) {
     // ...
 }
 
@@ -29,17 +29,17 @@ void process1() {
     string input_txt = "./story_of_stone/corpus.txt";
     vector<wstring> corpus;
     read_wlines(input_txt, corpus);
-    unordered_map<wstring_view, double> vocab2freq, vocab2phi;
-    topwords_em(corpus, vocab2freq, vocab2phi, 10, 1.0, 4, 1e-5, true, -1);
-    output_result(vocab2freq, vocab2phi);
+    unordered_map<wstring_view, double> vocab2freq, vocab2psi;
+    topwords_em(corpus, vocab2freq, vocab2psi, 10, 1.0, 4, 1e-5, true, -1);
+    output_result(vocab2freq, vocab2psi);
 }
 
 void process2() {
     cout << "process2: =========================" << endl;
     string input_txt = "./story_of_stone/corpus.txt";
     string vocab2freq_txt = "./cpp_vocab2freq.txt";
-    string vocab2phi_txt = "./cpp_vocab2phi.txt";
-    topwords_em(input_txt, vocab2freq_txt, vocab2phi_txt, "|", "", 10, 1.0, 4, 1e-5, true, -1);
+    string vocab2psi_txt = "./cpp_vocab2psi.txt";
+    topwords_em(input_txt, vocab2freq_txt, vocab2psi_txt, "|", "", 10, 1.0, 4, 1e-5, true, -1);
 }
 
 int main() {
@@ -80,7 +80,7 @@ def process1():
 	print('process1: =========================')
 	corpus_path = os.path.join('story_of_stone', 'corpus.txt')
 	corpus = open(corpus_path).read().splitlines()
-	vocab2freq, vocab2phi = topwords.em(
+	vocab2freq, vocab2psi = topwords.em(
 		corpus, n_iter=10, freq_threshold=1.0, max_len=4, lamb=1e-5, verbose=True, n_jobs=-1, loc='')
 
 	topk, step = 200, 10
@@ -91,9 +91,9 @@ def process1():
 		if (i % 10 == 0): print('')
 	print('')
 
-	print('Top 200 words (sorted by phi):')
-	vocab_phi = sorted(vocab2phi.items(), key=lambda item:item[1], reverse=True)[:topk]
-	for i, (word, freq) in enumerate(vocab_phi):
+	print('Top 200 words (sorted by psi):')
+	vocab_psi = sorted(vocab2psi.items(), key=lambda item:item[1], reverse=True)[:topk]
+	for i, (word, freq) in enumerate(vocab_psi):
 		print('{} {:.2f}; '.format(word, freq), end='')
 		if (i % 10 == 0): print('')
 	print('')
@@ -103,8 +103,8 @@ def process2():
 	print('process2: =========================')
 	corpus_path = os.path.join('story_of_stone', 'corpus.txt')
 	vocab2freq_path = os.path.join('py_vocab2freq.txt')
-	vocab2phi_path = os.path.join('py_vocab2phi.txt')
-	topwords.file_em(corpus_path, vocab2freq_path, vocab2phi_path, sep='|',
+	vocab2psi_path = os.path.join('py_vocab2psi.txt')
+	topwords.file_em(corpus_path, vocab2freq_path, vocab2psi_path, sep='|',
 		n_iter=10, freq_threshold=1.0, max_len=4, lamb=1e-5, verbose=True, n_jobs=-1, loc='')
 
 
@@ -153,7 +153,7 @@ Top 200 words (sorted by frequency):
 话 169.34; 在这里 168.31; 袭人道 168.17; 们 168.07; 东西 168.06; 周瑞家的 167.90; 比 167.43; 贾政道 166.17; 并 165.99; 薛蟠 165.91; 
 香菱 164.69; 心里 164.09; 宝玉听了 162.54; 也有 161.88; 不好 161.42; 做 160.77; 李纨 159.46; 凤姐道 158.99; 进去 158.62; 只管 158.09; 
 
-Top 200 words (sorted by phi):
+Top 200 words (sorted by psi):
 桌围 inf; 残菊 inf; 港台 inf; 扇坠 inf; 菩萨 inf; 疯疯癫癫 inf; 科幻 inf; 慧绣 inf; 噗哧 inf; 轰去魂魄 inf; 
 豆腐 inf; 咭咭呱呱 inf; 忆菊 inf; 蛇影杯弓 inf; 妆狐媚 inf; 孽障 inf; 琥珀 inf; 呜呜咽咽 inf; 杏帘 inf; 咕咚 inf; 
 慧纹 inf; 唐伯虎 inf; 稻香老农 inf; 皱一回眉 inf; 浣葛山庄 inf; 拾头打滚 inf; 桌椅 inf; 潇湘馆 inf; 绛云轩 inf; 狗彘奴欺 inf; 

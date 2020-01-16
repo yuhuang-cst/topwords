@@ -83,12 +83,12 @@ void test_corpus_em() {
     corpus.emplace_back(L"毛主席厉害");
     corpus.emplace_back(L"毛主席牛");
     corpus.emplace_back(L"硬币上印着毛主席");
-    unordered_map<wstring_view, double> vocab2freq, vocab2phi;
-    topwords_em(corpus, vocab2freq, vocab2phi, 10, 1e-3,4, 1e-5);
+    unordered_map<wstring_view, double> vocab2freq, vocab2psi;
+    topwords_em(corpus, vocab2freq, vocab2psi, 10, 1e-3,4, 1e-5);
     cout << "Frequency: --------------------" << endl;
     print_vocab_dict(cout, vocab2freq);
     cout << "Importance score: -------------------" << endl;
-    print_vocab_dict(cout, vocab2phi);
+    print_vocab_dict(cout, vocab2psi);
     cout << "test_corpus_em end =======================" << endl;
 }
 
@@ -96,8 +96,8 @@ void test_file_em() {
     cout << "test_file_em begin =======================" << endl;
     string input_txt = "test_corpus.txt";
     string vocab2freq_txt = "vocab2freq.txt";
-    string vocab2phi_txt = "vocab2phi.txt";
-    topwords_em(input_txt, vocab2freq_txt, vocab2phi_txt, "|", "", 10, 1e-3, 4, 1e-5);
+    string vocab2psi_txt = "vocab2psi.txt";
+    topwords_em(input_txt, vocab2freq_txt, vocab2psi_txt, "|", "", 10, 1e-3, 4, 1e-5);
     cout << "test_file_em end =======================" << endl;
 }
 

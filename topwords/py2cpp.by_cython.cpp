@@ -1187,12 +1187,12 @@ static const char __pyx_k_file_em[] = "file_em";
 static const char __pyx_k_max_len[] = "max_len";
 static const char __pyx_k_verbose[] = "verbose";
 static const char __pyx_k_input_txt[] = "input_txt";
-static const char __pyx_k_cvocab2phi[] = "cvocab2phi";
+static const char __pyx_k_cvocab2psi[] = "cvocab2psi";
 static const char __pyx_k_corpus_size[] = "corpus_size";
 static const char __pyx_k_cvocab2freq[] = "cvocab2freq";
-static const char __pyx_k_py_vocab2phi[] = "py_vocab2phi";
+static const char __pyx_k_py_vocab2psi[] = "py_vocab2psi";
 static const char __pyx_k_py_vocab2freq[] = "py_vocab2freq";
-static const char __pyx_k_vocab2phi_txt[] = "vocab2phi_txt";
+static const char __pyx_k_vocab2psi_txt[] = "vocab2psi_txt";
 static const char __pyx_k_freq_threshold[] = "freq_threshold";
 static const char __pyx_k_vocab2freq_txt[] = "vocab2freq_txt";
 static const char __pyx_k_topwords_py2cpp[] = "topwords.py2cpp";
@@ -1207,7 +1207,7 @@ static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_corpus;
 static PyObject *__pyx_n_s_corpus_size;
 static PyObject *__pyx_n_s_cvocab2freq;
-static PyObject *__pyx_n_s_cvocab2phi;
+static PyObject *__pyx_n_s_cvocab2psi;
 static PyObject *__pyx_n_s_em;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_file_em;
@@ -1223,7 +1223,7 @@ static PyObject *__pyx_n_s_n_iter;
 static PyObject *__pyx_n_s_n_jobs;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_py_vocab2freq;
-static PyObject *__pyx_n_s_py_vocab2phi;
+static PyObject *__pyx_n_s_py_vocab2psi;
 static PyObject *__pyx_n_s_sep;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_topwords_py2cpp;
@@ -1231,9 +1231,9 @@ static PyObject *__pyx_kp_s_topwords_py2cpp_pyx;
 static PyObject *__pyx_kp_u_utf_8;
 static PyObject *__pyx_n_s_verbose;
 static PyObject *__pyx_n_s_vocab2freq_txt;
-static PyObject *__pyx_n_s_vocab2phi_txt;
+static PyObject *__pyx_n_s_vocab2psi_txt;
 static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_corpus, PyObject *__pyx_v_n_iter, PyObject *__pyx_v_freq_threshold, PyObject *__pyx_v_max_len, PyObject *__pyx_v_lamb, PyObject *__pyx_v_verbose, PyObject *__pyx_v_n_jobs, CYTHON_UNUSED PyObject *__pyx_v_loc); /* proto */
-static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_txt, PyObject *__pyx_v_vocab2freq_txt, PyObject *__pyx_v_vocab2phi_txt, PyObject *__pyx_v_sep, PyObject *__pyx_v_n_iter, PyObject *__pyx_v_freq_threshold, PyObject *__pyx_v_max_len, PyObject *__pyx_v_lamb, PyObject *__pyx_v_verbose, PyObject *__pyx_v_n_jobs, PyObject *__pyx_v_loc); /* proto */
+static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_txt, PyObject *__pyx_v_vocab2freq_txt, PyObject *__pyx_v_vocab2psi_txt, PyObject *__pyx_v_sep, PyObject *__pyx_v_n_iter, PyObject *__pyx_v_freq_threshold, PyObject *__pyx_v_max_len, PyObject *__pyx_v_lamb, PyObject *__pyx_v_verbose, PyObject *__pyx_v_n_jobs, PyObject *__pyx_v_loc); /* proto */
 static PyObject *__pyx_float_1eneg_3;
 static PyObject *__pyx_float_1eneg_5;
 static PyObject *__pyx_int_6;
@@ -1255,7 +1255,7 @@ static PyObject *__pyx_codeobj__6;
 
 /* Python wrapper */
 static PyObject *__pyx_pw_8topwords_6py2cpp_1em(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8topwords_6py2cpp_em[] = "\n\tArgs:\n\t\tcorpus (list): [T_1, T_2, ...]; list of unsegmented text T\n\t\tn_iter (int): Iteration number of EM algorithm\n\t\tfreq_threshold (float): Candidate words whose frequencies < freq_threshold will be dropped in each iteration\n\t\tmax_len (int): Maximum length of word\n\t\tlamb (float): Smooth factor when calculating word probability\n\t\tverbose (bool): Whether to print details when running EM algorithm\n\t\tn_jobs (int): Number of jobs for parallel processing; -1 means using all cores\n\t\tloc (str): Locale of transformation between wstring and string\n\tReturns:\n\t\tdict: {word: frequency, ...}\n\t\tdict: {word: phi}\n\t";
+static char __pyx_doc_8topwords_6py2cpp_em[] = "\n\tArgs:\n\t\tcorpus (list): [T_1, T_2, ...]; list of unsegmented text T\n\t\tn_iter (int): Iteration number of EM algorithm\n\t\tfreq_threshold (float): Candidate words whose frequencies < freq_threshold will be dropped in each iteration\n\t\tmax_len (int): Maximum length of word\n\t\tlamb (float): Smooth factor when calculating word probability\n\t\tverbose (bool): Whether to print details when running EM algorithm\n\t\tn_jobs (int): Number of jobs for parallel processing; -1 means using all cores\n\t\tloc (str): Locale of transformation between wstring and string\n\tReturns:\n\t\tdict: {word: frequency, ...}\n\t\tdict: {word: psi}\n\t";
 static PyMethodDef __pyx_mdef_8topwords_6py2cpp_1em = {"em", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8topwords_6py2cpp_1em, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8topwords_6py2cpp_em};
 static PyObject *__pyx_pw_8topwords_6py2cpp_1em(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_corpus = 0;
@@ -1402,10 +1402,10 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   CYTHON_UNUSED __pyx_t_8topwords_6py2cpp_uint __pyx_v_corpus_size;
   std::vector<std::string>  __pyx_v_ccorpus;
   std::unordered_map<std::string,double>  __pyx_v_cvocab2freq;
-  std::unordered_map<std::string,double>  __pyx_v_cvocab2phi;
+  std::unordered_map<std::string,double>  __pyx_v_cvocab2psi;
   PyObject *__pyx_v_py_vocab2freq = NULL;
   std::unordered_map<std::string,double> ::iterator __pyx_v_it_f;
-  PyObject *__pyx_v_py_vocab2phi = NULL;
+  PyObject *__pyx_v_py_vocab2psi = NULL;
   std::unordered_map<std::string,double> ::iterator __pyx_v_it_p;
   PyObject *__pyx_7genexpr__pyx_v_T = NULL;
   PyObject *__pyx_r = NULL;
@@ -1429,7 +1429,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_RefNannySetupContext("em", 0);
 
   /* "topwords/py2cpp.pyx":39
- * 		dict: {word: phi}
+ * 		dict: {word: psi}
  * 	"""
  * 	cdef uint corpus_size = len(corpus)             # <<<<<<<<<<<<<<
  * 	cdef vector[string] ccorpus = [<string> T.encode('utf-8') for T in corpus]
@@ -1443,7 +1443,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
  * 	cdef uint corpus_size = len(corpus)
  * 	cdef vector[string] ccorpus = [<string> T.encode('utf-8') for T in corpus]             # <<<<<<<<<<<<<<
  * 	cdef unordered_map[string, double] cvocab2freq
- * 	cdef unordered_map[string, double] cvocab2phi
+ * 	cdef unordered_map[string, double] cvocab2psi
  */
   { /* enter inner scope */
     __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L5_error)
@@ -1527,8 +1527,8 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
 
   /* "topwords/py2cpp.pyx":43
  * 	cdef unordered_map[string, double] cvocab2freq
- * 	cdef unordered_map[string, double] cvocab2phi
- * 	topwords_em(ccorpus, cvocab2freq, cvocab2phi, ''.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)             # <<<<<<<<<<<<<<
+ * 	cdef unordered_map[string, double] cvocab2psi
+ * 	topwords_em(ccorpus, cvocab2freq, cvocab2psi, ''.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)             # <<<<<<<<<<<<<<
  * 
  * 	py_vocab2freq = {}
  */
@@ -1539,10 +1539,10 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_t_13 = __pyx_PyFloat_AsDouble(__pyx_v_lamb); if (unlikely((__pyx_t_13 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L1_error)
   __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_v_verbose); if (unlikely((__pyx_t_14 == ((bool)-1)) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L1_error)
   __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_v_n_jobs); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L1_error)
-  topwords_em(__pyx_v_ccorpus, __pyx_v_cvocab2freq, __pyx_v_cvocab2phi, __pyx_t_8, __pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_15);
+  topwords_em(__pyx_v_ccorpus, __pyx_v_cvocab2freq, __pyx_v_cvocab2psi, __pyx_t_8, __pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_15);
 
   /* "topwords/py2cpp.pyx":45
- * 	topwords_em(ccorpus, cvocab2freq, cvocab2phi, ''.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
+ * 	topwords_em(ccorpus, cvocab2freq, cvocab2psi, ''.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
  * 
  * 	py_vocab2freq = {}             # <<<<<<<<<<<<<<
  * 	cdef unordered_map[string, double].iterator it_f = cvocab2freq.begin()
@@ -1593,7 +1593,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
  * 		py_vocab2freq[deref(it_f).first.decode('utf-8')] = deref(it_f).second
  * 		inc(it_f)             # <<<<<<<<<<<<<<
  * 
- * 	py_vocab2phi = {}
+ * 	py_vocab2psi = {}
  */
     (void)((++__pyx_v_it_f));
   }
@@ -1601,39 +1601,39 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   /* "topwords/py2cpp.pyx":51
  * 		inc(it_f)
  * 
- * 	py_vocab2phi = {}             # <<<<<<<<<<<<<<
- * 	cdef unordered_map[string, double].iterator it_p = cvocab2phi.begin()
- * 	while it_p != cvocab2phi.end():
+ * 	py_vocab2psi = {}             # <<<<<<<<<<<<<<
+ * 	cdef unordered_map[string, double].iterator it_p = cvocab2psi.begin()
+ * 	while it_p != cvocab2psi.end():
  */
   __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_v_py_vocab2phi = ((PyObject*)__pyx_t_2);
+  __pyx_v_py_vocab2psi = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
   /* "topwords/py2cpp.pyx":52
  * 
- * 	py_vocab2phi = {}
- * 	cdef unordered_map[string, double].iterator it_p = cvocab2phi.begin()             # <<<<<<<<<<<<<<
- * 	while it_p != cvocab2phi.end():
- * 		py_vocab2phi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
+ * 	py_vocab2psi = {}
+ * 	cdef unordered_map[string, double].iterator it_p = cvocab2psi.begin()             # <<<<<<<<<<<<<<
+ * 	while it_p != cvocab2psi.end():
+ * 		py_vocab2psi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
  */
-  __pyx_v_it_p = __pyx_v_cvocab2phi.begin();
+  __pyx_v_it_p = __pyx_v_cvocab2psi.begin();
 
   /* "topwords/py2cpp.pyx":53
- * 	py_vocab2phi = {}
- * 	cdef unordered_map[string, double].iterator it_p = cvocab2phi.begin()
- * 	while it_p != cvocab2phi.end():             # <<<<<<<<<<<<<<
- * 		py_vocab2phi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
+ * 	py_vocab2psi = {}
+ * 	cdef unordered_map[string, double].iterator it_p = cvocab2psi.begin()
+ * 	while it_p != cvocab2psi.end():             # <<<<<<<<<<<<<<
+ * 		py_vocab2psi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
  * 		inc(it_p)
  */
   while (1) {
-    __pyx_t_16 = ((__pyx_v_it_p != __pyx_v_cvocab2phi.end()) != 0);
+    __pyx_t_16 = ((__pyx_v_it_p != __pyx_v_cvocab2psi.end()) != 0);
     if (!__pyx_t_16) break;
 
     /* "topwords/py2cpp.pyx":54
- * 	cdef unordered_map[string, double].iterator it_p = cvocab2phi.begin()
- * 	while it_p != cvocab2phi.end():
- * 		py_vocab2phi[deref(it_p).first.decode('utf-8')] = deref(it_p).second             # <<<<<<<<<<<<<<
+ * 	cdef unordered_map[string, double].iterator it_p = cvocab2psi.begin()
+ * 	while it_p != cvocab2psi.end():
+ * 		py_vocab2psi[deref(it_p).first.decode('utf-8')] = deref(it_p).second             # <<<<<<<<<<<<<<
  * 		inc(it_p)
  * 
  */
@@ -1641,16 +1641,16 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __Pyx_decode_cpp_string((*__pyx_v_it_p).first, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(PyDict_SetItem(__pyx_v_py_vocab2phi, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_py_vocab2psi, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 54, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "topwords/py2cpp.pyx":55
- * 	while it_p != cvocab2phi.end():
- * 		py_vocab2phi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
+ * 	while it_p != cvocab2psi.end():
+ * 		py_vocab2psi[deref(it_p).first.decode('utf-8')] = deref(it_p).second
  * 		inc(it_p)             # <<<<<<<<<<<<<<
  * 
- * 	return py_vocab2freq, py_vocab2phi
+ * 	return py_vocab2freq, py_vocab2psi
  */
     (void)((++__pyx_v_it_p));
   }
@@ -1658,7 +1658,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   /* "topwords/py2cpp.pyx":57
  * 		inc(it_p)
  * 
- * 	return py_vocab2freq, py_vocab2phi             # <<<<<<<<<<<<<<
+ * 	return py_vocab2freq, py_vocab2psi             # <<<<<<<<<<<<<<
  * 
  * 
  */
@@ -1668,9 +1668,9 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   __Pyx_INCREF(__pyx_v_py_vocab2freq);
   __Pyx_GIVEREF(__pyx_v_py_vocab2freq);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_py_vocab2freq);
-  __Pyx_INCREF(__pyx_v_py_vocab2phi);
-  __Pyx_GIVEREF(__pyx_v_py_vocab2phi);
-  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_py_vocab2phi);
+  __Pyx_INCREF(__pyx_v_py_vocab2psi);
+  __Pyx_GIVEREF(__pyx_v_py_vocab2psi);
+  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_py_vocab2psi);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
@@ -1694,7 +1694,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_py_vocab2freq);
-  __Pyx_XDECREF(__pyx_v_py_vocab2phi);
+  __Pyx_XDECREF(__pyx_v_py_vocab2psi);
   __Pyx_XDECREF(__pyx_7genexpr__pyx_v_T);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -1704,19 +1704,19 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_em(CYTHON_UNUSED PyObject *__pyx_sel
 /* "topwords/py2cpp.pyx":60
  * 
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',             # <<<<<<<<<<<<<<
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',             # <<<<<<<<<<<<<<
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
  * 	"""
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8topwords_6py2cpp_2file_em[] = "\n\tArgs:\n\t\tinput_txt (str): System path of input file with each line representing each T\n\t\tvocab2freq_txt (str): System path of output file to store vocabulary and frequency\n\t\tvocab2phi_txt (str): System path of output file to store vocabulary and phi\n\t\tsep (str): Separation string when writing output file\n\t\tloc (str): Locale of transformation between wstring and string\n\t\tn_iter (int): Iteration number of EM algorithm\n\t\tfreq_threshold (float): Candidate words whose frequencies < freq_threshold will be dropped in each iteration\n\t\tmax_len (int): Maximum length of word\n\t\tlamb (float): Smooth factor when calculating word probability\n\t\tverbose (bool): Whether to print details when running EM algorithm\n\t\tn_jobs (int): Number of jobs for parallel processing; -1 means using all cores\n\t";
+static char __pyx_doc_8topwords_6py2cpp_2file_em[] = "\n\tArgs:\n\t\tinput_txt (str): System path of input file with each line representing each T\n\t\tvocab2freq_txt (str): System path of output file to store vocabulary and frequency\n\t\tvocab2psi_txt (str): System path of output file to store vocabulary and psi\n\t\tsep (str): Separation string when writing output file\n\t\tloc (str): Locale of transformation between wstring and string\n\t\tn_iter (int): Iteration number of EM algorithm\n\t\tfreq_threshold (float): Candidate words whose frequencies < freq_threshold will be dropped in each iteration\n\t\tmax_len (int): Maximum length of word\n\t\tlamb (float): Smooth factor when calculating word probability\n\t\tverbose (bool): Whether to print details when running EM algorithm\n\t\tn_jobs (int): Number of jobs for parallel processing; -1 means using all cores\n\t";
 static PyMethodDef __pyx_mdef_8topwords_6py2cpp_3file_em = {"file_em", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8topwords_6py2cpp_3file_em, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8topwords_6py2cpp_2file_em};
 static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_input_txt = 0;
   PyObject *__pyx_v_vocab2freq_txt = 0;
-  PyObject *__pyx_v_vocab2phi_txt = 0;
+  PyObject *__pyx_v_vocab2psi_txt = 0;
   PyObject *__pyx_v_sep = 0;
   PyObject *__pyx_v_n_iter = 0;
   PyObject *__pyx_v_freq_threshold = 0;
@@ -1729,7 +1729,7 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("file_em (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_input_txt,&__pyx_n_s_vocab2freq_txt,&__pyx_n_s_vocab2phi_txt,&__pyx_n_s_sep,&__pyx_n_s_n_iter,&__pyx_n_s_freq_threshold,&__pyx_n_s_max_len,&__pyx_n_s_lamb,&__pyx_n_s_verbose,&__pyx_n_s_n_jobs,&__pyx_n_s_loc,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_input_txt,&__pyx_n_s_vocab2freq_txt,&__pyx_n_s_vocab2psi_txt,&__pyx_n_s_sep,&__pyx_n_s_n_iter,&__pyx_n_s_freq_threshold,&__pyx_n_s_max_len,&__pyx_n_s_lamb,&__pyx_n_s_verbose,&__pyx_n_s_n_jobs,&__pyx_n_s_loc,0};
     PyObject* values[11] = {0,0,0,0,0,0,0,0,0,0,0};
     values[3] = ((PyObject *)__pyx_kp_u__2);
     values[4] = ((PyObject *)__pyx_int_10);
@@ -1739,7 +1739,7 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
 
     /* "topwords/py2cpp.pyx":61
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):             # <<<<<<<<<<<<<<
  * 	"""
  * 	Args:
@@ -1789,7 +1789,7 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
         }
         CYTHON_FALLTHROUGH;
         case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_vocab2phi_txt)) != 0)) kw_args--;
+        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_vocab2psi_txt)) != 0)) kw_args--;
         else {
           __Pyx_RaiseArgtupleInvalid("file_em", 0, 3, 11, 2); __PYX_ERR(0, 60, __pyx_L3_error)
         }
@@ -1872,7 +1872,7 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
     }
     __pyx_v_input_txt = values[0];
     __pyx_v_vocab2freq_txt = values[1];
-    __pyx_v_vocab2phi_txt = values[2];
+    __pyx_v_vocab2psi_txt = values[2];
     __pyx_v_sep = values[3];
     __pyx_v_n_iter = values[4];
     __pyx_v_freq_threshold = values[5];
@@ -1890,12 +1890,12 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8topwords_6py2cpp_2file_em(__pyx_self, __pyx_v_input_txt, __pyx_v_vocab2freq_txt, __pyx_v_vocab2phi_txt, __pyx_v_sep, __pyx_v_n_iter, __pyx_v_freq_threshold, __pyx_v_max_len, __pyx_v_lamb, __pyx_v_verbose, __pyx_v_n_jobs, __pyx_v_loc);
+  __pyx_r = __pyx_pf_8topwords_6py2cpp_2file_em(__pyx_self, __pyx_v_input_txt, __pyx_v_vocab2freq_txt, __pyx_v_vocab2psi_txt, __pyx_v_sep, __pyx_v_n_iter, __pyx_v_freq_threshold, __pyx_v_max_len, __pyx_v_lamb, __pyx_v_verbose, __pyx_v_n_jobs, __pyx_v_loc);
 
   /* "topwords/py2cpp.pyx":60
  * 
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',             # <<<<<<<<<<<<<<
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',             # <<<<<<<<<<<<<<
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
  * 	"""
  */
@@ -1905,7 +1905,7 @@ static PyObject *__pyx_pw_8topwords_6py2cpp_3file_em(PyObject *__pyx_self, PyObj
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_txt, PyObject *__pyx_v_vocab2freq_txt, PyObject *__pyx_v_vocab2phi_txt, PyObject *__pyx_v_sep, PyObject *__pyx_v_n_iter, PyObject *__pyx_v_freq_threshold, PyObject *__pyx_v_max_len, PyObject *__pyx_v_lamb, PyObject *__pyx_v_verbose, PyObject *__pyx_v_n_jobs, PyObject *__pyx_v_loc) {
+static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_input_txt, PyObject *__pyx_v_vocab2freq_txt, PyObject *__pyx_v_vocab2psi_txt, PyObject *__pyx_v_sep, PyObject *__pyx_v_n_iter, PyObject *__pyx_v_freq_threshold, PyObject *__pyx_v_max_len, PyObject *__pyx_v_lamb, PyObject *__pyx_v_verbose, PyObject *__pyx_v_n_jobs, PyObject *__pyx_v_loc) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1927,7 +1927,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__p
   /* "topwords/py2cpp.pyx":76
  * 		n_jobs (int): Number of jobs for parallel processing; -1 means using all cores
  * 	"""
- * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2phi_txt.encode('utf-8'),             # <<<<<<<<<<<<<<
+ * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2psi_txt.encode('utf-8'),             # <<<<<<<<<<<<<<
  * 		sep.encode('utf-8'), loc.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
  * 
  */
@@ -1969,7 +1969,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_vocab2phi_txt, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_vocab2psi_txt, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1991,7 +1991,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__p
 
   /* "topwords/py2cpp.pyx":77
  * 	"""
- * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2phi_txt.encode('utf-8'),
+ * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2psi_txt.encode('utf-8'),
  * 		sep.encode('utf-8'), loc.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)             # <<<<<<<<<<<<<<
  * 
  */
@@ -2043,7 +2043,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__p
   /* "topwords/py2cpp.pyx":76
  * 		n_jobs (int): Number of jobs for parallel processing; -1 means using all cores
  * 	"""
- * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2phi_txt.encode('utf-8'),             # <<<<<<<<<<<<<<
+ * 	topwords_em(input_txt.encode('utf-8'), vocab2freq_txt.encode('utf-8'), vocab2psi_txt.encode('utf-8'),             # <<<<<<<<<<<<<<
  * 		sep.encode('utf-8'), loc.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
  * 
  */
@@ -2052,7 +2052,7 @@ static PyObject *__pyx_pf_8topwords_6py2cpp_2file_em(CYTHON_UNUSED PyObject *__p
   /* "topwords/py2cpp.pyx":60
  * 
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',             # <<<<<<<<<<<<<<
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',             # <<<<<<<<<<<<<<
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
  * 	"""
  */
@@ -2542,7 +2542,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_corpus, __pyx_k_corpus, sizeof(__pyx_k_corpus), 0, 0, 1, 1},
   {&__pyx_n_s_corpus_size, __pyx_k_corpus_size, sizeof(__pyx_k_corpus_size), 0, 0, 1, 1},
   {&__pyx_n_s_cvocab2freq, __pyx_k_cvocab2freq, sizeof(__pyx_k_cvocab2freq), 0, 0, 1, 1},
-  {&__pyx_n_s_cvocab2phi, __pyx_k_cvocab2phi, sizeof(__pyx_k_cvocab2phi), 0, 0, 1, 1},
+  {&__pyx_n_s_cvocab2psi, __pyx_k_cvocab2psi, sizeof(__pyx_k_cvocab2psi), 0, 0, 1, 1},
   {&__pyx_n_s_em, __pyx_k_em, sizeof(__pyx_k_em), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_file_em, __pyx_k_file_em, sizeof(__pyx_k_file_em), 0, 0, 1, 1},
@@ -2558,7 +2558,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_n_jobs, __pyx_k_n_jobs, sizeof(__pyx_k_n_jobs), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_py_vocab2freq, __pyx_k_py_vocab2freq, sizeof(__pyx_k_py_vocab2freq), 0, 0, 1, 1},
-  {&__pyx_n_s_py_vocab2phi, __pyx_k_py_vocab2phi, sizeof(__pyx_k_py_vocab2phi), 0, 0, 1, 1},
+  {&__pyx_n_s_py_vocab2psi, __pyx_k_py_vocab2psi, sizeof(__pyx_k_py_vocab2psi), 0, 0, 1, 1},
   {&__pyx_n_s_sep, __pyx_k_sep, sizeof(__pyx_k_sep), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_topwords_py2cpp, __pyx_k_topwords_py2cpp, sizeof(__pyx_k_topwords_py2cpp), 0, 0, 1, 1},
@@ -2566,7 +2566,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_utf_8, __pyx_k_utf_8, sizeof(__pyx_k_utf_8), 0, 1, 0, 0},
   {&__pyx_n_s_verbose, __pyx_k_verbose, sizeof(__pyx_k_verbose), 0, 0, 1, 1},
   {&__pyx_n_s_vocab2freq_txt, __pyx_k_vocab2freq_txt, sizeof(__pyx_k_vocab2freq_txt), 0, 0, 1, 1},
-  {&__pyx_n_s_vocab2phi_txt, __pyx_k_vocab2phi_txt, sizeof(__pyx_k_vocab2phi_txt), 0, 0, 1, 1},
+  {&__pyx_n_s_vocab2psi_txt, __pyx_k_vocab2psi_txt, sizeof(__pyx_k_vocab2psi_txt), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
@@ -2584,7 +2584,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 	"""
  * 	Args:
  */
-  __pyx_tuple__3 = PyTuple_Pack(17, __pyx_n_s_corpus, __pyx_n_s_n_iter, __pyx_n_s_freq_threshold, __pyx_n_s_max_len, __pyx_n_s_lamb, __pyx_n_s_verbose, __pyx_n_s_n_jobs, __pyx_n_s_loc, __pyx_n_s_corpus_size, __pyx_n_s_ccorpus, __pyx_n_s_cvocab2freq, __pyx_n_s_cvocab2phi, __pyx_n_s_py_vocab2freq, __pyx_n_s_it_f, __pyx_n_s_py_vocab2phi, __pyx_n_s_it_p, __pyx_n_s_T); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(17, __pyx_n_s_corpus, __pyx_n_s_n_iter, __pyx_n_s_freq_threshold, __pyx_n_s_max_len, __pyx_n_s_lamb, __pyx_n_s_verbose, __pyx_n_s_n_jobs, __pyx_n_s_loc, __pyx_n_s_corpus_size, __pyx_n_s_ccorpus, __pyx_n_s_cvocab2freq, __pyx_n_s_cvocab2psi, __pyx_n_s_py_vocab2freq, __pyx_n_s_it_f, __pyx_n_s_py_vocab2psi, __pyx_n_s_it_p, __pyx_n_s_T); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
   __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(8, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_topwords_py2cpp_pyx, __pyx_n_s_em, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 24, __pyx_L1_error)
@@ -2592,11 +2592,11 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "topwords/py2cpp.pyx":60
  * 
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',             # <<<<<<<<<<<<<<
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',             # <<<<<<<<<<<<<<
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
  * 	"""
  */
-  __pyx_tuple__5 = PyTuple_Pack(11, __pyx_n_s_input_txt, __pyx_n_s_vocab2freq_txt, __pyx_n_s_vocab2phi_txt, __pyx_n_s_sep, __pyx_n_s_n_iter, __pyx_n_s_freq_threshold, __pyx_n_s_max_len, __pyx_n_s_lamb, __pyx_n_s_verbose, __pyx_n_s_n_jobs, __pyx_n_s_loc); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(11, __pyx_n_s_input_txt, __pyx_n_s_vocab2freq_txt, __pyx_n_s_vocab2psi_txt, __pyx_n_s_sep, __pyx_n_s_n_iter, __pyx_n_s_freq_threshold, __pyx_n_s_max_len, __pyx_n_s_lamb, __pyx_n_s_verbose, __pyx_n_s_n_jobs, __pyx_n_s_loc); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
   __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(11, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_topwords_py2cpp_pyx, __pyx_n_s_file_em, 60, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 60, __pyx_L1_error)
@@ -2895,7 +2895,7 @@ if (!__Pyx_RefNanny) {
   /* "topwords/py2cpp.pyx":60
  * 
  * 
- * def file_em(input_txt, vocab2freq_txt, vocab2phi_txt, sep='|',             # <<<<<<<<<<<<<<
+ * def file_em(input_txt, vocab2freq_txt, vocab2psi_txt, sep='|',             # <<<<<<<<<<<<<<
  * 		n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
  * 	"""
  */

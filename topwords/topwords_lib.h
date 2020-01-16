@@ -82,11 +82,11 @@ double sumlog(const double* log_values, uint n);
 void em_iter_T(wstring_view T, const unordered_map<wstring_view, double>& vocab2freq, const double freq_sum,
                unordered_map<wstring_view, double>& vocab2freq_T, unordered_map<wstring_view, double>& vocab2r_T,
                const uint max_len, const double lamb, bool calculate_r=true);
-void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, double>& vocab2freq, unordered_map<wstring_view, double>& vocab2phi,
+void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, double>& vocab2freq, unordered_map<wstring_view, double>& vocab2psi,
                         const uint n_iter=10, const double freq_threshold=1e-3, const uint max_len=6, const double lamb=1e-5, bool verbose=true, int n_jobs=-1);
-void topwords_em(const vector<string>& corpus, unordered_map<string, double>& vocab2freq, unordered_map<string, double>& vocab2phi, const string& loc="",
+void topwords_em(const vector<string>& corpus, unordered_map<string, double>& vocab2freq, unordered_map<string, double>& vocab2psi, const string& loc="",
                         const uint n_iter=10, const double freq_threshold=1e-3, const uint max_len=6, const double lamb=1e-5, bool verbose=true, int n_jobs=-1);
-void topwords_em(const string& input_txt, const string& vocab2freq_txt, const string& vocab2phi_txt, const string& sep="|", const string& loc="",
+void topwords_em(const string& input_txt, const string& vocab2freq_txt, const string& vocab2psi_txt, const string& sep="|", const string& loc="",
                  const uint n_iter=10, const double freq_threshold=1e-3, const uint max_len=6, const double lamb=1e-5, bool verbose=true, int n_jobs=-1);
 void print_vocab_dict(ostream& out, const unordered_map<wstring_view, double>& vocab_dict, bool reverse=true, bool sort_by_value=true, string_view sep=" ");
 void print_vocab_dict(const string& path, const unordered_map<wstring_view, double>& vocab_dict, bool reverse=true, bool sort_by_value=true, string_view sep="|");

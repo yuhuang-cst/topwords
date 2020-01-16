@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void output_result(const unordered_map<wstring_view, double>& vocab2freq, const unordered_map<wstring_view, double>& vocab2phi, int topk=200, int step=10) {
+void output_result(const unordered_map<wstring_view, double>& vocab2freq, const unordered_map<wstring_view, double>& vocab2psi, int topk=200, int step=10) {
     vector< pair<string, double> > pairs;
     for (const auto & item: vocab2freq)
         pairs.emplace_back(make_pair(ws2s(item.first), item.second));
@@ -23,10 +23,10 @@ void output_result(const unordered_map<wstring_view, double>& vocab2freq, const 
     cout << endl;
 
     pairs.clear();
-    for (const auto & item: vocab2phi)
+    for (const auto & item: vocab2psi)
         pairs.emplace_back(make_pair(ws2s(item.first), item.second));
     sort(pairs.begin(), pairs.end(), KeyValueComp<string, double>());
-    cout << "Top " << topk << " words (sorted by phi):" << endl;
+    cout << "Top " << topk << " words (sorted by psi):" << endl;
     for (int i = 0; i < topk; ++i) {
         cout << pairs[i].first << " " << setprecision(2) << pairs[i].second << "; ";
         if ((i+1) % step == 0) cout << endl;
@@ -39,17 +39,17 @@ void process1() {
     string input_txt = "./story_of_stone/corpus.txt";
     vector<wstring> corpus;
     read_wlines(input_txt, corpus);
-    unordered_map<wstring_view, double> vocab2freq, vocab2phi;
-    topwords_em(corpus, vocab2freq, vocab2phi, 10, 1.0, 4, 1e-5, true, -1);
-    output_result(vocab2freq, vocab2phi);
+    unordered_map<wstring_view, double> vocab2freq, vocab2psi;
+    topwords_em(corpus, vocab2freq, vocab2psi, 10, 1.0, 4, 1e-5, true, -1);
+    output_result(vocab2freq, vocab2psi);
 }
 
 void process2() {
     cout << "process2: =========================" << endl;
     string input_txt = "./story_of_stone/corpus.txt";
     string vocab2freq_txt = "./cpp_vocab2freq.txt";
-    string vocab2phi_txt = "./cpp_vocab2phi.txt";
-    topwords_em(input_txt, vocab2freq_txt, vocab2phi_txt, "|", "", 10, 1.0, 4, 1e-5, true, -1);
+    string vocab2psi_txt = "./cpp_vocab2psi.txt";
+    topwords_em(input_txt, vocab2freq_txt, vocab2psi_txt, "|", "", 10, 1.0, 4, 1e-5, true, -1);
 }
 
 int main() {

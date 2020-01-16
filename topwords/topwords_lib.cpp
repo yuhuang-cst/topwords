@@ -176,7 +176,7 @@ void em_iter_T(wstring_view T, const unordered_map<wstring_view, double>& vocab2
 /**
  * @param[in] corpus list of unsegmented text T
  * @param[in, out] vocab2freq Vocabulary and frequency: {term: n_term}; will be initialized if empty
- * @param[out] vocab2phi Vocabulary and importance score @f$\phi@f$: {term: phi}
+ * @param[out] vocab2psi Vocabulary and importance score @f$\psi@f$: {term: psi}
  * @param[in] n_iter Iteration number of EM algorithm
  * @param[in] freq_threshold Candidate words whose frequencies < freq_threshold will be dropped in each iteration
  * @param[in] max_len Maximum length of segmented term
@@ -184,7 +184,7 @@ void em_iter_T(wstring_view T, const unordered_map<wstring_view, double>& vocab2
  * @param[in] verbose Whether to print details when running EM algorithm
  * @param[in] n_jobs Number of jobs for parallel processing; -1 means using all cores
  * */
-void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, double>& vocab2freq, unordered_map<wstring_view, double>& vocab2phi,
+void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, double>& vocab2freq, unordered_map<wstring_view, double>& vocab2psi,
                const uint n_iter, const double freq_threshold, const uint max_len, const double lamb, bool verbose, int n_jobs) {
     #ifdef _OPENMP
     omp_set_num_threads(n_jobs == -1? omp_get_num_procs(): n_jobs);
@@ -216,7 +216,7 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
                     dict_add(vocab2freq_next, item.first, item.second);
                 if (i == n_iter) {
                     for (const auto & item: vocab2r_T)
-                        dict_add(vocab2phi, item.first, -log(1.0 - item.second));
+                        dict_add(vocab2psi, item.first, -log(1.0 - item.second));
                 }
             }
         }
@@ -225,32 +225,32 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
             it->second < freq_threshold? vocab2freq.erase(it++): ++it;
         vocab2freq_next.clear();
     }
-    for (auto it = vocab2phi.cbegin(); it != vocab2phi.cend();)
-        vocab2freq.find(it->first) == vocab2freq.end()? vocab2phi.erase(it++): ++it;
+    for (auto it = vocab2psi.cbegin(); it != vocab2psi.cend();)
+        vocab2freq.find(it->first) == vocab2freq.end()? vocab2psi.erase(it++): ++it;
     logger.info("Final vocab size =", vocab2freq.size());
 }
 
 /**
 * Interface for cython
 */
-void topwords_em(const vector<string>& corpus, unordered_map<string, double>& vocab2freq, unordered_map<string, double>& vocab2phi, const string& loc,
+void topwords_em(const vector<string>& corpus, unordered_map<string, double>& vocab2freq, unordered_map<string, double>& vocab2psi, const string& loc,
                 const uint n_iter, const double freq_threshold, const uint max_len, const double lamb, bool verbose, int n_jobs) {
     vector<wstring> wcorpus(corpus.size());
     for (const auto & s: corpus)
         wcorpus.emplace_back(s2ws(s, loc));
     unordered_map<wstring_view, double> wvocab2freq;
-    unordered_map<wstring_view, double> wvocab2phi;
-    topwords_em(wcorpus, wvocab2freq, wvocab2phi, n_iter, freq_threshold, max_len, lamb, verbose, n_jobs);
+    unordered_map<wstring_view, double> wvocab2psi;
+    topwords_em(wcorpus, wvocab2freq, wvocab2psi, n_iter, freq_threshold, max_len, lamb, verbose, n_jobs);
     for (const auto & item: wvocab2freq)
         vocab2freq.emplace(make_pair(ws2s(item.first), item.second));
-    for (const auto & item: wvocab2phi)
-        vocab2phi.emplace(make_pair(ws2s(item.first), item.second));
+    for (const auto & item: wvocab2psi)
+        vocab2psi.emplace(make_pair(ws2s(item.first), item.second));
 }
 
 /**
  * @param[in] input_txt System path of input file with each line representing each T
  * @param[in] vocab2freq_txt System path of output file to store vocabulary and frequency
- * @param[in] vocab2phi_txt System path of output file to store vocabulary and phi
+ * @param[in] vocab2psi_txt System path of output file to store vocabulary and psi
  * @param[in] sep Separation string when writing output file
  * @param[in] loc Locale of transformation between wstring and string
  * @param[in] n_iter Iteration number of EM algorithm
@@ -260,15 +260,15 @@ void topwords_em(const vector<string>& corpus, unordered_map<string, double>& vo
  * @param[in] verbose Whether to print details when running EM algorithm
  * @param[in] n_jobs Number of jobs for parallel processing; -1 means using all cores
  * */
-void topwords_em(const string& input_txt, const string& vocab2freq_txt, const string& vocab2phi_txt, const string& sep, const string& loc,
+void topwords_em(const string& input_txt, const string& vocab2freq_txt, const string& vocab2psi_txt, const string& sep, const string& loc,
              const uint n_iter, const double freq_threshold, const uint max_len, const double lamb, bool verbose, int n_jobs) {
     Logger logger(cout, verbose);
     vector<wstring> corpus;
     read_wlines(input_txt, corpus, loc);
-    unordered_map<wstring_view, double> vocab2freq, vocab2phi;
-    topwords_em(corpus, vocab2freq, vocab2phi, n_iter, freq_threshold, max_len, lamb, verbose);
+    unordered_map<wstring_view, double> vocab2freq, vocab2psi;
+    topwords_em(corpus, vocab2freq, vocab2psi, n_iter, freq_threshold, max_len, lamb, verbose);
     logger.info("Writing vocabulary and frequency...");
     print_vocab_dict(vocab2freq_txt, vocab2freq);
     logger.info("Writing vocabulary and importance score...");
-    print_vocab_dict(vocab2phi_txt, vocab2phi);
+    print_vocab_dict(vocab2psi_txt, vocab2psi);
 }
