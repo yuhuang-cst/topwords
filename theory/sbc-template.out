@@ -1,0 +1,28 @@
+\BOOKMARK [1][-]{section.1}{Metrics}{}% 1
+\BOOKMARK [1][-]{section.2}{Benchmarks}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Res}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{RDD}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{RBP}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Lin}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{JC}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{MinIC}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{SimGIC}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.8}{SimUI}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.9}{TO}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.10}{Cosine}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{One-sided vs. symmetric}{}% 13
+\BOOKMARK [1][-]{section.4}{BOQA- vs. BOQA}{}% 14
+\BOOKMARK [1][-]{section.5}{GDDP 1a vs. GDDP 1b}{}% 15
+\BOOKMARK [1][-]{section.6}{One-to-one comparing matrix}{}% 16
+\BOOKMARK [1][-]{section.7}{Hyperparameters of models}{}% 17
+\BOOKMARK [2][-]{subsection.7.1}{GDDP}{section.7}% 18
+\BOOKMARK [3][-]{subsubsection.7.1.1}{GDDP 1a}{subsection.7.1}% 19
+\BOOKMARK [3][-]{subsubsection.7.1.2}{GDDP 1b}{subsection.7.1}% 20
+\BOOKMARK [2][-]{subsection.7.2}{RBP}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.3}{HPOProb}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.4}{CNB}{section.7}% 23
+\BOOKMARK [2][-]{subsection.7.5}{SVM}{section.7}% 24
+\BOOKMARK [2][-]{subsection.7.6}{LR}{section.7}% 25
+\BOOKMARK [2][-]{subsection.7.7}{MLP}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.8}{MLP+P.}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.9}{MLP+M.}{section.7}% 28

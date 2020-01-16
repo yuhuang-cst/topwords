@@ -49,7 +49,7 @@ int main() {
 }
 ```
 
-Then run the `Makefile` to generate Executable program:
+Then run the `Makefile` to generate executable program:
 
 ```
 cd examples
@@ -58,7 +58,7 @@ make
 ```
 
 ## Python
-If you are not familiar with C++, you can use the python wrapper directly. Simply run the setup script to install:
+If you are not familiar with C++, you can use the Python wrapper. Simply run the setup script to install:
 
 ```
 python3 setup.py install
@@ -192,20 +192,3 @@ Final vocab size = 19839
 Writing vocabulary and frequency...
 Writing vocabulary and importance score...
 ```
-
-# Theory
-
-## Notation
-- Characters: $A = \{a_1, a_2, ..., a_p\}$
-- Vocabulary: $D = \{w_1, w_2, ..., w_N\}$, $w = a_{i_1}a_{i_2}...a_{i_l}$
-- Word probability: $\mathbf{\theta} = (\theta_1, ..., \theta_N)$
-- K-word (segmented) sentence: $S = w_{i_1}, w_{i_2}, ..., w_{i_K}$
-
-
-
-
-
-
-
-
-

@@ -4,6 +4,7 @@ rsyncToServer.sh
 exclude.txt
 *.DS_Store
 *.xml
+theory/.texpadtmp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
