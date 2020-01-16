@@ -1,0 +1,3 @@
+include topwords/*.h
+include topwords/*.pxd
+include topwords/*.pyx
