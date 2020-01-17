@@ -3,6 +3,7 @@
 * @Email: yuhuang-cst@foxmail.com
 */
 
+#include <cassert>
 #include "topwords_lib.h"
 
 wstring s2ws(const string& src, const string& loc) {
@@ -78,7 +79,6 @@ void get_all_ngram(wstring_view T, const uint max_len, unordered_set<wstring_vie
 }
 
 void init_vocab2freq(const vector<wstring> &corpus, uint max_len, unordered_map<wstring_view, double> &vocab2freq) {
-    //FIXME: parallel
     for (const auto & T: corpus) {
         unordered_set<wstring_view> ngram_set;
         get_all_ngram(T, max_len, ngram_set);
@@ -189,13 +189,16 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
     #ifdef _OPENMP
     omp_set_num_threads(n_jobs == -1? omp_get_num_procs(): n_jobs);
     #endif
+
     Logger logger(cout, verbose);
+    unordered_map<wstring_view, double> vocab2freq_next;
     if (vocab2freq.empty()) {
         logger.info("initializing vocabulary...");
         init_vocab2freq(corpus, max_len, vocab2freq);
+        for (const auto & item: vocab2freq) vocab2freq_next[item.first] = 0.0;
+        for (const auto & item: vocab2freq) vocab2psi[item.first] = 0.0;
         logger.info("vocabulary initilazation done.");
     }
-    unordered_map<wstring_view, double> vocab2freq_next;
 
     int T_num = corpus.size();
     for (uint i = 1; i <= n_iter; ++i) {
@@ -209,21 +212,23 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
             unordered_map<wstring_view, double> vocab2freq_T;
             unordered_map<wstring_view, double> vocab2r_T;
             em_iter_T(T, vocab2freq, freq_sum, vocab2freq_T, vocab2r_T, max_len, lamb, i==n_iter);
-
-            #pragma omp critical
-            {
-                for (const auto & item: vocab2freq_T)
-                    dict_add(vocab2freq_next, item.first, item.second);
-                if (i == n_iter) {
-                    for (const auto & item: vocab2r_T)
-                        dict_add(vocab2psi, item.first, -log(1.0 - item.second));
+            for (const auto & item: vocab2freq_T) {
+                #pragma omp atomic
+                vocab2freq_next[item.first] += item.second;
+            }
+            if (i == n_iter) {
+                double psi;
+                for (const auto & item: vocab2r_T) {
+                    psi = -log(1.0 - item.second);
+                    #pragma omp atomic
+                    vocab2psi[item.first] += psi;
                 }
             }
         }
         vocab2freq = vocab2freq_next;
         for (auto it = vocab2freq.cbegin(); it != vocab2freq.cend();)
             it->second < freq_threshold? vocab2freq.erase(it++): ++it;
-        vocab2freq_next.clear();
+        for (auto & item: vocab2freq_next) item.second = 0.0;
     }
     for (auto it = vocab2psi.cbegin(); it != vocab2psi.cend();)
         vocab2freq.find(it->first) == vocab2freq.end()? vocab2psi.erase(it++): ++it;

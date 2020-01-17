@@ -21,7 +21,7 @@ cdef extern from "../topwords/topwords_lib.h":
 	double sumlog(const vector[double]& log_values, const uint start, const uint n);
 
 
-def em(corpus, n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=""):
+def em(corpus, n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=True, n_jobs=-1, loc=''):
 	"""
 	Args:
 		corpus (list): [T_1, T_2, ...]; list of unsegmented text T
@@ -40,7 +40,7 @@ def em(corpus, n_iter=10, freq_threshold=1e-3, max_len=6, lamb=1e-5, verbose=Tru
 	cdef vector[string] ccorpus = [<string> T.encode('utf-8') for T in corpus]
 	cdef unordered_map[string, double] cvocab2freq
 	cdef unordered_map[string, double] cvocab2psi
-	topwords_em(ccorpus, cvocab2freq, cvocab2psi, ''.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
+	topwords_em(ccorpus, cvocab2freq, cvocab2psi, loc.encode('utf-8'), n_iter, freq_threshold, max_len, lamb, verbose, n_jobs)
 
 	py_vocab2freq = {}
 	cdef unordered_map[string, double].iterator it_f = cvocab2freq.begin()
