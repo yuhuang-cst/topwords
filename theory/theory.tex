@@ -44,7 +44,7 @@
 \end{itemize}
 
 \section{Methods}
-Under word dictionary model (WDM), The probability of generating sentence $S$ is:
+Under word dictionary model (WDM), the probability of generating sentence $S$ is:
 $$ P(S|D, \bm{\theta}) = \sum_{k=1}^K \theta_{i_k}.$$
 The probability of generating text $T$ is:
 $$ P(T|D, \bm{\theta}) = \sum_{S \in C_T} P(S|D, \bm{\theta}). $$
@@ -60,7 +60,8 @@ For E-step, Q function is defined as:
 \begin{align*}
 Q(\bm{\theta}, \bm{\theta}^{(r)}) = E(L|D, \bm{\theta}, \bm{\theta}^{(r)}) &= \sum_{j=1}^n \sum_{S \in C_{T_j}} P(S|T_j; D, \bm{\theta}^{(r)}) \log \prod_{i=1}^N \theta_i^{n_i(S)},
 \end{align*}
-where $n_i(S)$ denotes the number of occurrences of $w_i$ in sentence $S$. Note that $n_i(S) = 0$ if $w_i$ doesn't occur in $S$. For M-step, we update $\bm{\theta}$ using:
+where $n_i(S)$ denotes the number of occurrences of $w_i$ in sentence $S$. Note that $n_i(S) = 0$ if $w_i$ doesn't occur in $S$. \\
+For M-step, we update $\bm{\theta}$ using:
 $$ \bm{\theta}^{(r+1)} = \arg \max_{\bm{\theta}} Q(\bm{\theta}, \bm{\theta}^{(r)}), \quad s.t. \sum_{i=1}^N \theta_i = 1. $$
 By introducing $\lambda$, the Lagrange function is defined as:
 $$ f = \sum_{j=1}^n \sum_{S \in C_{T_j}} P(S|T_j; D, \bm{\theta}^{(r)}) \log \prod_{i=1}^N \theta_i^{n_i(S)} + \lambda (1-\sum_{i=1}^N \theta_i). $$
@@ -90,7 +91,7 @@ where $\bm{\theta}_{w_i=0} = (\theta_1, ..., \theta_{i-1}, 0, \theta_{i+1}, ...,
 $$ r_i(T_j) = \frac{\sum_{S \in C_{T_j}} I(w_i \in S)P(S|D, \bm{\theta})}{\sum_{S \in C_{T_j}}P(S|D, \bm{\theta})} = \frac{\sum_{S \in C_{T_j}} I(w_i \in S)P(S|D, \bm{\theta})}{P(T_j|D, \bm{\theta})} $$ 
 
 \section{Dynamic Programing}
-From last section, we have:
+From the last section, we have:
 \begin{align*}
 n_i^{(r)}(T_j) &= \frac{\sum_{S \in C_{T_j}} P(S|D, \bm{\theta}^{(r)})n_i(S)}{P(T_j|D, \bm{\theta}^{(r)})} \quad (T_j = T \text{; ignore } D, \bm{\theta}^{(r)}) \\
 &= \frac{\sum_{t=1}^{\tau_L} \sum_{S_{|>t|} \in T_{|>t|}} \theta_{T_{|1:t|}}P(S_{|>t|}) [I(T_{|1:t|} = w_i) + n_i(S_{|>t|})]}{P(T)} \\
@@ -100,9 +101,7 @@ n_i^{(r)}(T_j) &= \frac{\sum_{S \in C_{T_j}} P(S|D, \bm{\theta}^{(r)})n_i(S)}{P(
 &= \frac{\sum_{t=1}^{\tau_L} \theta_{T_{|1:t|}} P(T_{|>t|}) [I(T_{|1:t|} = w_i) + n_i(T|>t|)]}{P(T)} \\
 &= \sum_{t=1}^{\tau_L} \rho_t [I(T_{|1:t|} = w_i) + n_i(T_{|>t|})]
 \end{align*}
-where $\rho_t = \frac{\sum_{t=1}^{\tau_L} \theta_{T_{|1:t|}} P(T_{|>t|})}{P(T)} $ and $P(T) = \sum_{S \in C_{T}} P(S) = \sum_{t=1}^{\tau_L} \theta_{T_{|1:t|}} P(T_{|>t|})$. 
-
-Similarly, we also have:
+where $\rho_t = \frac{\sum_{t=1}^{\tau_L} \theta_{T_{|1:t|}} P(T_{|>t|})}{P(T)} $ and $P(T) = \sum_{S \in C_{T}} P(S) = \sum_{t=1}^{\tau_L} \theta_{T_{|1:t|}} P(T_{|>t|})$. Similarly, we also have:
 \begin{align*}
 r_i(T_j) &= \frac{\sum_{S \in C_{T_j}} I(w_i \in S)P(S|D, \bm{\theta})}{P(T_j|D, \bm{\theta})} \quad (T_j = T \text{; ignore } D, \bm{\theta}^{(r)}) \\
 &= \frac{\sum_{t=1}^{\tau_L} \sum_{S_{|>t|} \in T_{|>t|}} \theta_{T_{|1:t|}}P(S_{|>t|}) [I(T_{|1:t|} = w_i) + I(w_i \in S_{|>t|})I(T_{|1:t|} \neq w_i)]}{P(T|D, \bm{\theta})} \\
