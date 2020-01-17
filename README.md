@@ -194,4 +194,4 @@ Writing vocabulary and importance score...
 ```
 
 # Issue
-- Due to unknown reason (maybe bugs of OpenMP), the actually running cpu cores will be half of `n_jobs` set by user. In this case, just double the `n_jobs` to solve the problem.
+- Due to unknown reason (maybe bugs of OpenMP), sometimes the actually running cpu cores will be half of `n_jobs` set by user. In this case, just double the `n_jobs` to solve the problem.
