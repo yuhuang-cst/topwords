@@ -195,10 +195,10 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
     if (vocab2freq.empty()) {
         logger.info("initializing vocabulary...");
         init_vocab2freq(corpus, max_len, vocab2freq);
-        for (const auto & item: vocab2freq) vocab2freq_next[item.first] = 0.0;
-        for (const auto & item: vocab2freq) vocab2psi[item.first] = 0.0;
         logger.info("vocabulary initilazation done.");
     }
+    for (const auto & item: vocab2freq) vocab2freq_next[item.first] = 0.0;
+    for (const auto & item: vocab2freq) vocab2psi[item.first] = 0.0;
 
     int T_num = corpus.size();
     for (uint i = 1; i <= n_iter; ++i) {
@@ -213,15 +213,19 @@ void topwords_em(const vector<wstring>& corpus, unordered_map<wstring_view, doub
             unordered_map<wstring_view, double> vocab2r_T;
             em_iter_T(T, vocab2freq, freq_sum, vocab2freq_T, vocab2r_T, max_len, lamb, i==n_iter);
             for (const auto & item: vocab2freq_T) {
-                #pragma omp atomic
-                vocab2freq_next[item.first] += item.second;
+                if (vocab2freq_next.find(item.first) != vocab2freq_next.end()) { // found
+                    #pragma omp atomic
+                    vocab2freq_next[item.first] += item.second;
+                }
             }
             if (i == n_iter) {
                 double psi;
                 for (const auto & item: vocab2r_T) {
-                    psi = -log(1.0 - item.second);
-                    #pragma omp atomic
-                    vocab2psi[item.first] += psi;
+                    if (vocab2psi.find(item.first) != vocab2psi.end()) { // found
+                        psi = -log(1.0 - item.second);
+                        #pragma omp atomic
+                        vocab2psi[item.first] += psi;
+                    }
                 }
             }
         }
